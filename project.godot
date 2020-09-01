@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="FlappyBirdie"
-run/main_scene="res://scenes/level.tscn"
+run/main_scene="res://scenes/hud/level.tscn"
 boot_splash/image="res://splashes/splash.png"
 boot_splash/fullsize=false
 boot_splash/bg_color=Color( 0.301961, 0.74902, 0.792157, 1 )

@@ -6,8 +6,8 @@ signal score_updated(score)
 signal game_over
 signal game_continue
 
-onready var pipe_scene = load("res://scenes/pipes.tscn")
-onready var coin_scene = load("res://scenes/coin.tscn")
+onready var pipe_scene = load("res://scenes/objects/pipes.tscn")
+onready var coin_scene = load("res://scenes/objects/coin.tscn")
 
 export (float) var base_pipe_timer = 3
 export (float) var delta_pipe_timer = 0.03
@@ -17,7 +17,7 @@ export (float) var coin_screen_gap = 2.0
 export (float) var speed = 170.0
 export (float) var speed_increasing = 0.02
 export (int) var coin_min_pipe = 1
-export (int) var coin_max_pipe = 5
+export (int) var coin_max_pipe = 3
 export (int) var banner_starts_required = 2
 
 var decreased_timer: float = 0

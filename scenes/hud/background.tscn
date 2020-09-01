@@ -1,9 +1,10 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://scenes/Parallax.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/hud/Parallax.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/images/background/clouds.png" type="Texture" id=5]
 [ext_resource path="res://scripts/background.gd" type="Script" id=6]
 [ext_resource path="res://assets/images/background/distant_clouds.png" type="Texture" id=7]
+
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0 )
