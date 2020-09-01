@@ -45,11 +45,8 @@ func sign_out() -> void:
 		play_games_services.signOut()
 
 
-func check_if_signed_in() -> void:
-	if play_games_services:
-		var is_signed_in: bool = play_games_services.isSignedIn()
-		print("Signed in: %s"%is_signed_in)	
-
+func is_signed_in() -> bool:
+	return play_games_services && play_games_services.isSignedIn()
 
 # Achievements methods
 func unlock_achievement(id) -> void:

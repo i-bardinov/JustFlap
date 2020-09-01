@@ -143,5 +143,5 @@ func _on_AdMob_rewarded_ad_closed():
 func _on_AdMob_rewarded_ad_earned_reward(_type, _amount):
 	emit_signal("game_continue")
 
-func _on_Menu_continue_button():
+func _on_Menu_continue_game():
 	emit_signal("game_continue")

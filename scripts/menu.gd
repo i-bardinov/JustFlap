@@ -3,6 +3,7 @@ extends Control
 signal replay
 signal continue_button
 signal watch_rewarded_ad
+signal continue_game
 
 signal mute(is_muted)
 signal coins_updated(coins)
@@ -102,7 +103,6 @@ func _on_Level_game_over():
 
 func _on_coin_taken():
 	Global.coins += 1
-	save_game()
 	emit_signal("coins_updated", Global.coins)
 
 func _on_ContinueMenu_return_to_menu():
@@ -149,6 +149,8 @@ func _on_TextureRect_gui_input(event):
 			emit_signal('replay')
 
 func _on_Menu_continue_button():
-	Global.coins -= current_price
-	save_game()
-	emit_signal("coins_updated", Global.coins)
+	if Global.coins >= current_price:
+		Global.coins -= current_price
+		save_game()
+		emit_signal("coins_updated", Global.coins)
+		emit_signal("continue_game")
