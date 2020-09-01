@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/fonts/Arcadepix Plus.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/images/buttons/replay.png" type="Texture" id=2]
 [ext_resource path="res://scripts/menu.gd" type="Script" id=3]
 [ext_resource path="res://scripts/GPGS.gd" type="Script" id=4]
+[ext_resource path="res://assets/images/buttons/ad_icon.png" type="Texture" id=5]
 [ext_resource path="res://assets/images/buttons/rewarded_ad.png" type="Texture" id=6]
 [ext_resource path="res://assets/images/buttons/empty_big.png" type="Texture" id=7]
 [ext_resource path="res://assets/images/misc/coin_icon.png" type="Texture" id=8]
@@ -28,6 +29,11 @@ size = 100
 extra_spacing_top = -5
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=6]
+size = 90
+extra_spacing_top = -5
+font_data = ExtResource( 1 )
+
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -48,9 +54,9 @@ __meta__ = {
 }
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-anchor_top = -0.000416138
+anchor_top = -0.00122314
 anchor_right = 1.0
-anchor_bottom = 0.999584
+anchor_bottom = 0.998777
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -58,9 +64,9 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 12.0
-margin_top = 347.0
+margin_top = 372.0
 margin_right = 388.0
-margin_bottom = 653.0
+margin_bottom = 628.0
 grow_horizontal = 2
 mouse_filter = 2
 custom_constants/separation = 20
@@ -77,6 +83,7 @@ valign = 1
 uppercase = true
 
 [node name="TapToContinue" type="Label" parent="CenterContainer/VBoxContainer"]
+visible = false
 margin_top = 73.0
 margin_right = 376.0
 margin_bottom = 103.0
@@ -89,9 +96,9 @@ autowrap = true
 uppercase = true
 
 [node name="Center" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
-margin_top = 123.0
+margin_top = 73.0
 margin_right = 376.0
-margin_bottom = 306.0
+margin_bottom = 256.0
 rect_pivot_offset = Vector2( 91.1376, 92.3105 )
 mouse_filter = 2
 
@@ -157,6 +164,39 @@ margin_bottom = 183.0
 rect_pivot_offset = Vector2( 148.791, 41.9232 )
 texture_normal = ExtResource( 6 )
 stretch_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/Center/VBoxContainer/AdButton"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/Center/VBoxContainer/AdButton/CenterContainer"]
+margin_left = 115.0
+margin_top = 7.0
+margin_right = 185.0
+margin_bottom = 77.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Center/VBoxContainer/AdButton/CenterContainer/HBoxContainer"]
+visible = false
+margin_right = 191.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0.654902, 0.282353, 1 )
+text = "FREE"
+align = 1
+valign = 1
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Center/VBoxContainer/AdButton/CenterContainer/HBoxContainer"]
+margin_right = 70.0
+margin_bottom = 70.0
+mouse_filter = 2
+texture = ExtResource( 5 )
+stretch_mode = 4
 
 [node name="ScoreTimer" type="Timer" parent="."]
 wait_time = 3.0
