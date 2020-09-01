@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "GPGS",
 "language": "GDScript",
 "path": "res://scripts/GPGS.gd"
+}, {
+"base": "Node",
+"class": "InAppReview",
+"language": "GDScript",
+"path": "res://scripts/InAppReview.gd"
 } ]
 _global_script_class_icons={
 "AdMob": "res://scripts/admob-lib/icon.png",
-"GPGS": ""
+"GPGS": "",
+"InAppReview": ""
 }
 
 [application]

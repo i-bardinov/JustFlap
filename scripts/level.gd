@@ -115,6 +115,7 @@ func _on_CoinTimer_timeout():
 	generate_new_coin()
 
 func _on_Level_reset():
+	Global.matches_count += 1
 	Global.score = 0
 	Global.death_count = 0
 	pipes_generated = 0
