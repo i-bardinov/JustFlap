@@ -1,0 +1,8 @@
+.import
+export
+.DS_Store
+*.png~
+key
+build
+gradle
+export_presets.cfg

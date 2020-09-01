@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/pipes.gd" type="Script" id=2]
+[ext_resource path="res://assets/sounds/score.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/images/pipes/pipe_2.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/pipes/pipe_1.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 24.7862, 337.771 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 2.17787, 44.2865 )
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 29.395, -1 )
+script = ExtResource( 2 )
+
+[node name="PipeUp" type="Area2D" parent="."]
+position = Vector2( 0, 8.14697 )
+collision_layer = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Pipe1" type="Sprite" parent="PipeUp"]
+position = Vector2( 0, -53 )
+texture = ExtResource( 5 )
+flip_v = true
+
+[node name="Pipe2" type="Sprite" parent="PipeUp"]
+position = Vector2( 0, -390.374 )
+scale = Vector2( 1, 65.1266 )
+texture = ExtResource( 4 )
+flip_v = true
+
+[node name="Collision" type="CollisionShape2D" parent="PipeUp"]
+position = Vector2( 0.0684509, -378.789 )
+shape = SubResource( 1 )
+
+[node name="PipeDown" type="Area2D" parent="."]
+position = Vector2( 0, -9 )
+collision_layer = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Pipe1" type="Sprite" parent="PipeDown"]
+position = Vector2( 0, 53 )
+texture = ExtResource( 5 )
+
+[node name="Pipe2" type="Sprite" parent="PipeDown"]
+position = Vector2( 0, 481.755 )
+scale = Vector2( 1, 83.3452 )
+texture = ExtResource( 4 )
+
+[node name="Collision" type="CollisionShape2D" parent="PipeDown"]
+position = Vector2( -0.244674, 378.58 )
+shape = SubResource( 1 )
+
+[node name="ScoreArea" type="Area2D" parent="."]
+position = Vector2( -4.6595, 1.01154 )
+scale = Vector2( 1.15271, -4.17173 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea"]
+position = Vector2( 21.7297, -0.496674 )
+shape = SubResource( 2 )
+
+[node name="Score" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+[connection signal="body_entered" from="PipeUp" to="." method="_on_PipeUp_body_entered"]
+[connection signal="body_entered" from="PipeDown" to="." method="_on_PipeDown_body_entered"]
+[connection signal="body_exited" from="ScoreArea" to="." method="_on_ScoreArea_body_exited"]

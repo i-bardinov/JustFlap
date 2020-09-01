@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/continue.wav-77f7217d57e24c88a4512a05b9e8e392.sample"
+
+[deps]
+
+source_file="res://assets/sounds/continue.wav"
+dest_files=[ "res://.import/continue.wav-77f7217d57e24c88a4512a05b9e8e392.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

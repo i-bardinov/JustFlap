@@ -1,0 +1,75 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": "AdMob",
+"language": "GDScript",
+"path": "res://scripts/admob-lib/admob.gd"
+}, {
+"base": "Node",
+"class": "GPGS",
+"language": "GDScript",
+"path": "res://scripts/GPGS.gd"
+} ]
+_global_script_class_icons={
+"AdMob": "res://scripts/admob-lib/icon.png",
+"GPGS": ""
+}
+
+[application]
+
+config/name="FlappyBirdie"
+run/main_scene="res://scenes/level.tscn"
+boot_splash/image="res://splashes/splash.png"
+boot_splash/fullsize=false
+boot_splash/bg_color=Color( 0.301961, 0.74902, 0.792157, 1 )
+config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://scripts/global.gd"
+
+[display]
+
+window/size/width=400
+window/size/height=1000
+window/dpi/allow_hidpi=true
+window/vsync/use_vsync=false
+window/handheld/orientation="sensor_portrait"
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
+
+[input]
+
+game_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="game_objects"
+
+[locale]
+
+translations=PoolStringArray( "res://assets/localize/localization.en.translation", "res://assets/localize/localization.ru.translation" )
+locale_filter=[ 0, [  ] ]
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+quality/2d/use_pixel_snap=true
+vram_compression/import_etc=true
+environment/default_environment="res://default_env.tres"
