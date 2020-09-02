@@ -14,9 +14,6 @@ func set_visible_coins(visibility: bool):
 	if visibility:
 		$MarginContainer2/HBoxContainer/Coins.text = str(Global.coins)
 
-func set_score(score: int):
-	$MarginContainer/VBoxContainer/Score.text = str(score)
-
 func _on_Level_game_over():
 	set_visible_coins(true)
 

@@ -8,6 +8,7 @@ signal game_continue
 
 onready var pipe_scene = load("res://scenes/objects/pipes.tscn")
 onready var coin_scene = load("res://scenes/objects/coin.tscn")
+onready var Player = get_node("Player/Player")
 
 export (float) var base_pipe_timer = 3
 export (float) var delta_pipe_timer = 0.03
@@ -32,7 +33,8 @@ func _ready():
 	_on_Menu_replay()
 
 func _physics_process(_delta):
-	eff_speed += speed_increasing
+	if Player.state == Player.State.Flying:
+		eff_speed += speed_increasing
 
 func _on_PipeGeneratorTimer_timeout():
 	decreased_timer -= delta_pipe_timer
@@ -48,6 +50,10 @@ func _on_Player_start_flying():
 	pipes_for_coin = int(round(randi() % coin_max_pipe + coin_min_pipe))
 	$Timers/FirstPipeGeneratorTimer.start()
 	$Timers/TutorialTimer.stop()
+	if not $AdMob.is_rewarded_ad_loaded():
+		$AdMob.load_rewarded_ad()
+	if not $AdMob.is_banner_loaded() and Global.start_count >= banner_starts_required:
+		$AdMob.load_banner()
 
 func generate_new_pipe(in_center: bool):
 	var pipe = pipe_scene.instance() as Node2D
@@ -146,8 +152,14 @@ func _on_AdMob_banner_ad_failed_to_load(error_code):
 func _on_AdMob_rewarded_ad_closed():
 	$AdMob.load_rewarded_ad()
 
-func _on_AdMob_rewarded_ad_earned_reward(_type, _amount):
-	emit_signal("game_continue")
-
 func _on_Menu_continue_game():
 	emit_signal("game_continue")
+
+func _on_Bank_watch_rewarded_ad():
+	$AdMob.show_rewarded_ad()
+
+func _on_Settings_bank_closed():
+	emit_signal("reset")
+
+func _on_Settings_bank(callback):
+	$Timers/TutorialTimer.stop()

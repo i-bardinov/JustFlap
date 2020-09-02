@@ -2,6 +2,12 @@ extends Node
 
 class_name AdMob, "res://scripts/admob-lib/icon.png"
 
+enum Status {
+	None,
+	Requested,
+	Loaded
+}
+
 # signals
 signal initialization_complete
 
@@ -38,8 +44,9 @@ export(String, "G", "PG", "T", "MA") var max_ad_content_rate
 
 # "private" properties
 var _admob_singleton = null
+var _banner_ad_status = Status.None
 var _interstitial_ad_loaded = false
-var _rewarded_ad_loaded = false
+var _rewarded_ad_status = Status.None
 
 func _ready():
 	if not init():
@@ -96,7 +103,11 @@ func is_available() -> bool:
 
 func load_banner() -> void:
 	if _admob_singleton != null:
+		_banner_ad_status = Status.Requested
 		_admob_singleton.loadBanner(banner_id, banner_on_top)
+
+func is_banner_loaded() -> bool:
+	return _banner_ad_status == Status.Loaded
 
 func load_interstitial() -> void:
 	if _admob_singleton != null:
@@ -107,10 +118,11 @@ func is_interstitial_loaded() -> bool:
 		
 func load_rewarded_ad() -> void:
 	if _admob_singleton != null:
+		_rewarded_ad_status = Status.Requested
 		_admob_singleton.loadRewardedAd(rewarded_id)
 		
 func is_rewarded_ad_loaded() -> bool:
-	return _rewarded_ad_loaded
+	return _rewarded_ad_status == Status.Loaded
 
 # show / hide
 
@@ -120,6 +132,7 @@ func show_banner() -> void:
 		
 func hide_banner() -> void:
 	if _admob_singleton != null:
+		_banner_ad_status = Status.None
 		_admob_singleton.hideBanner()
 
 func move_banner(on_top: bool) -> void:
@@ -153,9 +166,11 @@ func _on_initialization_complete() -> void:
 	emit_signal("initialization_complete")
 
 func _on_banner_ad_loaded() -> void:
+	_banner_ad_status = Status.Loaded
 	emit_signal("banner_ad_loaded")
 	
 func _on_banner_ad_failed_to_load(error: String) -> void:
+	_banner_ad_status = Status.None
 	emit_signal("banner_ad_failed_to_load", error)
 
 func _on_banner_ad_opened() -> void:
@@ -193,23 +208,25 @@ func _on_interstitial_ad_closed() -> void:
 	emit_signal("interstitial_ad_closed")
 
 func _on_rewarded_ad_loaded() -> void:
-	_rewarded_ad_loaded = true
+	_rewarded_ad_status = Status.Loaded
 	emit_signal("rewarded_ad_loaded")
 
 func _on_rewarded_ad_failed_to_load(error: String) -> void:
+	_rewarded_ad_status = Status.None
 	emit_signal("rewarded_ad_failed_to_load", error)
-	
+
 func _on_rewarded_ad_opened() -> void:
-	_rewarded_ad_loaded = false
+	_rewarded_ad_status = Status.None
 	emit_signal("rewarded_ad_opened")
 	
 func _on_rewarded_ad_closed() -> void:
-	_rewarded_ad_loaded = false
+	_rewarded_ad_status = Status.None
 	emit_signal("rewarded_ad_closed")
 	
 func _on_rewarded_ad_earned_reward(type: String, amount: int) -> void:
+	_rewarded_ad_status = Status.None
 	emit_signal("rewarded_ad_earned_reward", type, amount)
 	
 func _on_rewarded_ad_failed_to_show(error: String) -> void:
+	_rewarded_ad_status = Status.None
 	emit_signal("rewarded_ad_failed_to_show", error)
-

@@ -93,6 +93,7 @@ func _on_Player_falling():
 	$FallSoundTimer.start()
 
 func _on_Level_reset():
+	show()
 	state = State.Idle
 	position = Vector2(0, get_viewport_rect().size.y / 2.0)
 	velocity = Vector2(start, 0)
@@ -104,3 +105,6 @@ func _on_Level_game_continue():
 func _on_FallSoundTimer_timeout():
 	$FallSoundTimer.stop()
 	$Sounds/Falling.play()
+
+func _on_Settings_bank(_callback):
+	hide()

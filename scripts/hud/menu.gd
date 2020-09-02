@@ -4,6 +4,7 @@ signal replay
 signal continue_button
 signal watch_rewarded_ad
 signal continue_game
+signal not_enough_coins(callback)
 
 signal mute(is_muted)
 signal coins_updated(coins)
@@ -48,6 +49,9 @@ func show():
 		price_text.add_color_override("font_color", color_available)
 	else:
 		price_text.add_color_override("font_color", color_unavailable)
+
+func _physics_process(_delta):
+	ad_button.visible = Global.death_count == 1 and AdMob.is_rewarded_ad_loaded()
 
 func set_text(text: String):
 	$CenterContainer/VBoxContainer/Text.text = text
@@ -163,3 +167,23 @@ func _on_Menu_continue_button():
 		save_game()
 		emit_signal("coins_updated", Global.coins)
 		emit_signal("continue_game")
+	else:
+		hide()
+		emit_signal("not_enough_coins", funcref(self, "_on_return_from_bank"))
+
+func _on_return_from_bank():
+	if Global.coins >= current_price:
+		Global.coins -= current_price
+		save_game()
+		emit_signal("coins_updated", Global.coins)
+		emit_signal("continue_game")
+	else:
+		show()
+
+func _on_AdMob_rewarded_ad_earned_reward(_type, _amount):
+	if visible:
+		emit_signal("continue_game")
+
+func _on_Bank_coins_updated():
+	save_game()
+	emit_signal("coins_updated", Global.coins)
