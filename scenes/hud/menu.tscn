@@ -2,8 +2,8 @@
 
 [ext_resource path="res://assets/fonts/Arcadepix Plus.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/images/buttons/replay.png" type="Texture" id=2]
-[ext_resource path="res://scripts/menu.gd" type="Script" id=3]
-[ext_resource path="res://scripts/GPGS.gd" type="Script" id=4]
+[ext_resource path="res://scripts/hud/menu.gd" type="Script" id=3]
+[ext_resource path="res://scripts/core/GPGS.gd" type="Script" id=4]
 [ext_resource path="res://assets/images/buttons/ad_icon.png" type="Texture" id=5]
 [ext_resource path="res://assets/images/buttons/rewarded_ad.png" type="Texture" id=6]
 [ext_resource path="res://assets/images/buttons/empty_big.png" type="Texture" id=7]

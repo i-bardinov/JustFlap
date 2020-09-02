@@ -3,7 +3,7 @@ extends Control
 signal sound
 signal score
 
-var _Utils = preload("res://scripts/utils.gd")
+var _Utils = preload("res://scripts/core/utils.gd")
 onready var AdMob = get_node("../../AdMob")
 
 func _on_SoundButton_pressed():

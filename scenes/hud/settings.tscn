@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/images/buttons/sound_off.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/buttons/score.png" type="Texture" id=2]
-[ext_resource path="res://scripts/settings.gd" type="Script" id=3]
+[ext_resource path="res://scripts/hud/settings.gd" type="Script" id=3]
 [ext_resource path="res://assets/images/buttons/shop.png" type="Texture" id=4]
 
 [node name="Control" type="Control"]

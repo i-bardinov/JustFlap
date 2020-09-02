@@ -12,7 +12,7 @@ export var price_multiplier: int = 10
 export var color_available: Color = Color8(0, 167, 72, 255)
 export var color_unavailable: Color = Color.firebrick
 
-var _Utils = preload("res://scripts/utils.gd")
+var _Utils = preload("res://scripts/core/utils.gd")
 
 var texture_sound_on = preload("res://assets/images/buttons/sound_on.png")
 var texture_sound_off = preload("res://assets/images/buttons/sound_off.png")

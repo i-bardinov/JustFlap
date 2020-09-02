@@ -17,12 +17,12 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "GPGS",
 "language": "GDScript",
-"path": "res://scripts/GPGS.gd"
+"path": "res://scripts/core/GPGS.gd"
 }, {
 "base": "Node",
 "class": "InAppReview",
 "language": "GDScript",
-"path": "res://scripts/InAppReview.gd"
+"path": "res://scripts/core/InAppReview.gd"
 } ]
 _global_script_class_icons={
 "AdMob": "res://scripts/admob-lib/icon.png",
@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="FlappyBirdie"
-run/main_scene="res://scenes/hud/level.tscn"
+run/main_scene="res://scenes/objects/level.tscn"
 boot_splash/image="res://splashes/splash.png"
 boot_splash/fullsize=false
 boot_splash/bg_color=Color( 0.301961, 0.74902, 0.792157, 1 )
@@ -41,7 +41,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Global="*res://scripts/global.gd"
+Global="*res://scripts/core/global.gd"
 
 [display]
 

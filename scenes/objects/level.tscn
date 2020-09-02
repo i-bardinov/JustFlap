@@ -1,34 +1,38 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://scripts/admob-lib/admob.gd" type="Script" id=1]
-[ext_resource path="res://assets/sounds/continue.wav" type="AudioStream" id=2]
-[ext_resource path="res://scripts/level.gd" type="Script" id=3]
-[ext_resource path="res://scripts/InAppReview.gd" type="Script" id=4]
-[ext_resource path="res://scenes/hud/tutorial.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/hud/settings.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/hud/HUD.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/hud/background.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/hud/menu.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/objects/player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/objects/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/hud/tutorial.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/hud/settings.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/hud/HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/hud/background.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/hud/menu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/core/InAppReview.gd" type="Script" id=7]
+[ext_resource path="res://scripts/objects/level.gd" type="Script" id=8]
+[ext_resource path="res://scripts/admob-lib/admob.gd" type="Script" id=9]
+[ext_resource path="res://assets/sounds/continue.wav" type="AudioStream" id=10]
 [ext_resource path="res://assets/sounds/theme.ogg" type="AudioStream" id=11]
+[ext_resource path="res://scenes/hud/bank.tscn" type="PackedScene" id=12]
 
 [node name="Level" type="Node2D"]
-script = ExtResource( 3 )
+script = ExtResource( 8 )
 
-[node name="Background" parent="." instance=ExtResource( 8 )]
+[node name="Background" parent="." instance=ExtResource( 5 )]
 
 [node name="HUD" type="CanvasLayer" parent="."]
 layer = 4
 
-[node name="Menu" parent="HUD" instance=ExtResource( 9 )]
+[node name="Menu" parent="HUD" instance=ExtResource( 6 )]
 visible = false
 
-[node name="Settings" parent="HUD" instance=ExtResource( 6 )]
+[node name="Settings" parent="HUD" instance=ExtResource( 3 )]
 
-[node name="UpperHud" parent="HUD" instance=ExtResource( 7 )]
+[node name="Bank" parent="HUD" instance=ExtResource( 12 )]
+visible = false
+
+[node name="UpperHud" parent="HUD" instance=ExtResource( 4 )]
 anchor_bottom = 0.0
 
-[node name="Tutorial" parent="HUD" instance=ExtResource( 5 )]
+[node name="Tutorial" parent="HUD" instance=ExtResource( 2 )]
 visible = false
 
 [node name="Objects" type="Node" parent="."]
@@ -38,7 +42,7 @@ z_index = 2
 
 [node name="Player" type="Node" parent="."]
 
-[node name="Player" parent="Player" instance=ExtResource( 10 )]
+[node name="Player" parent="Player" instance=ExtResource( 1 )]
 position = Vector2( -79.2903, 532.111 )
 scale = Vector2( 4, 4 )
 z_index = 3
@@ -68,16 +72,16 @@ volume_db = -10.602
 autoplay = true
 
 [node name="ContinueSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
+stream = ExtResource( 10 )
 
 [node name="AdMob" type="Node" parent="."]
-script = ExtResource( 1 )
+script = ExtResource( 9 )
 banner_on_top = false
 banner_id = "ca-app-pub-7282817685873692/7019004263"
 rewarded_id = "ca-app-pub-7282817685873692/8771069633"
 
 [node name="InAppReview" type="Node" parent="."]
-script = ExtResource( 4 )
+script = ExtResource( 7 )
 [connection signal="game_continue" from="." to="HUD/Menu" method="_on_Level_game_continue"]
 [connection signal="game_continue" from="." to="HUD/UpperHud" method="_on_Level_game_continue"]
 [connection signal="game_continue" from="." to="." method="_on_Level_game_continue"]
@@ -102,10 +106,10 @@ script = ExtResource( 4 )
 [connection signal="sound" from="HUD/Settings" to="HUD/Menu" method="_on_Settings_sound"]
 [connection signal="smash" from="Player/Player" to="Background" method="_on_Player_smash"]
 [connection signal="smash" from="Player/Player" to="." method="_on_Player_smash"]
+[connection signal="start_flying" from="Player/Player" to="HUD/Tutorial" method="_on_Player_start_flying"]
 [connection signal="start_flying" from="Player/Player" to="Background" method="_on_Player_start_flying"]
 [connection signal="start_flying" from="Player/Player" to="HUD/Settings" method="_on_Player_start_flying"]
 [connection signal="start_flying" from="Player/Player" to="HUD/UpperHud" method="_on_Player_start_flying"]
-[connection signal="start_flying" from="Player/Player" to="HUD/Tutorial" method="_on_Player_start_flying"]
 [connection signal="start_flying" from="Player/Player" to="." method="_on_Player_start_flying"]
 [connection signal="timeout" from="Timers/FirstPipeGeneratorTimer" to="." method="_on_FirstPipeGeneratorTimer_timeout"]
 [connection signal="timeout" from="Timers/PipeGeneratorTimer" to="." method="_on_PipeGeneratorTimer_timeout"]
