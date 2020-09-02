@@ -161,5 +161,5 @@ func _on_Bank_watch_rewarded_ad():
 func _on_Settings_bank_closed():
 	emit_signal("reset")
 
-func _on_Settings_bank(callback):
+func _on_Settings_bank(_callback):
 	$Timers/TutorialTimer.stop()

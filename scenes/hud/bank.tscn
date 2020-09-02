@@ -57,6 +57,7 @@ margin_top = 376.0
 margin_right = 382.0
 margin_bottom = 623.0
 grow_horizontal = 2
+mouse_filter = 2
 custom_constants/separation = 20
 alignment = 1
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/back.png-3e8513295b7278f5a0a460344bae5608.stex"
+path="res://.import/sound_on_icon.png-84395d9999b806eed79e8f52ea61e6ed.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/buttons/back.png"
-dest_files=[ "res://.import/back.png-3e8513295b7278f5a0a460344bae5608.stex" ]
+source_file="res://assets/images/icons/sound_on_icon.png"
+dest_files=[ "res://.import/sound_on_icon.png-84395d9999b806eed79e8f52ea61e6ed.stex" ]
 
 [params]
 

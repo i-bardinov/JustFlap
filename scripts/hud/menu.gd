@@ -15,8 +15,8 @@ export var color_unavailable: Color = Color.firebrick
 
 var _Utils = preload("res://scripts/core/utils.gd")
 
-var texture_sound_on = preload("res://assets/images/buttons/sound_on.png")
-var texture_sound_off = preload("res://assets/images/buttons/sound_off.png")
+var texture_sound_on = preload("res://assets/images/icons/sound_on_icon.png")
+var texture_sound_off = preload("res://assets/images/icons/sound_off_icon.png")
 
 onready var price_text: Label = get_node("CenterContainer/VBoxContainer/Center/VBoxContainer/ContinueButton/CenterContainer/HBoxContainer/Price")
 onready var continue_button: TextureButton = get_node("CenterContainer/VBoxContainer/Center/VBoxContainer/ContinueButton")
@@ -60,9 +60,9 @@ func sound_change():
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), is_muted)
 	emit_signal("mute", is_muted)
 	if is_muted:
-		get_tree().get_root().find_node("SoundButton", true, false).texture_normal = texture_sound_off
+		get_tree().get_root().find_node("SoundTexture", true, false).texture = texture_sound_off
 	else:
-		get_tree().get_root().find_node("SoundButton", true, false).texture_normal = texture_sound_on
+		get_tree().get_root().find_node("SoundTexture", true, false).texture = texture_sound_on
 
 func _on_ReplayButton_pressed():
 	emit_signal('replay')
