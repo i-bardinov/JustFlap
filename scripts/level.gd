@@ -24,6 +24,7 @@ var decreased_timer: float = 0
 var eff_speed = speed
 var pipes_for_coin: int = 0
 var pipes_generated: int = 0
+var was_revived: bool = false
 
 func _ready():
 	randomize()
@@ -41,6 +42,9 @@ func _on_PipeGeneratorTimer_timeout():
 	remove_old_objects()
 
 func _on_Player_start_flying():
+	if not was_revived:
+		eff_speed = speed
+	was_revived = false
 	pipes_for_coin = int(round(randi() % coin_max_pipe + coin_min_pipe))
 	$Timers/FirstPipeGeneratorTimer.start()
 	$Timers/TutorialTimer.stop()
@@ -125,6 +129,7 @@ func _on_Level_reset():
 
 func _on_Level_game_continue():
 	remove_objects()
+	was_revived = true
 	$ContinueSound.play()
 
 func _on_Menu_watch_rewarded_ad():
