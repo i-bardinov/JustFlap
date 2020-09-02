@@ -83,7 +83,7 @@ func load_game():
 			saved_game.close()
 	sound_change()
 	emit_signal("coins_updated", Global.coins)
-	$GPGS.sign_in()
+	$GPGS.sign_in(true)
 
 func save_game():
 	var saved_game = File.new()
@@ -141,6 +141,15 @@ func _on_Settings_sound():
 	save_game()
 
 func _on_Settings_score():
+	if $GPGS.is_inited():
+		if $GPGS.is_signed_in():
+			$GPGS.show_leaderboard()
+		else:
+			if not $GPGS.play_games_services.is_connected("_on_sign_in_success", self, "_on_sign_in_success"):
+				$GPGS.play_games_services.connect("_on_sign_in_success", self, "_on_sign_in_success")
+			$GPGS.sign_in(false)
+
+func _on_sign_in_success(_account_id: String) -> void:
 	$GPGS.show_leaderboard()
 
 func _on_TextureRect_gui_input(event):
