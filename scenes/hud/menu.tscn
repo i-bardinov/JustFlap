@@ -1,11 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/fonts/Arcadepix Plus.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/images/buttons/replay.png" type="Texture" id=2]
 [ext_resource path="res://scripts/hud/menu.gd" type="Script" id=3]
 [ext_resource path="res://scripts/core/GPGS.gd" type="Script" id=4]
-[ext_resource path="res://assets/images/buttons/ad_icon.png" type="Texture" id=5]
-[ext_resource path="res://assets/images/buttons/rewarded_ad.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/icons/rewarded_ad_icon.png" type="Texture" id=5]
 [ext_resource path="res://assets/images/buttons/empty_big.png" type="Texture" id=7]
 [ext_resource path="res://assets/images/misc/coin_icon.png" type="Texture" id=8]
 
@@ -43,7 +42,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Darkening" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = SubResource( 2 )
@@ -162,11 +161,10 @@ margin_top = 99.0
 margin_right = 300.0
 margin_bottom = 183.0
 rect_pivot_offset = Vector2( 148.791, 41.9232 )
-texture_normal = ExtResource( 6 )
+texture_normal = ExtResource( 7 )
 stretch_mode = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/Center/VBoxContainer/AdButton"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -175,10 +173,10 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/Center/VBoxContainer/AdButton/CenterContainer"]
-margin_left = 115.0
-margin_top = 7.0
-margin_right = 185.0
-margin_bottom = 77.0
+margin_left = 111.0
+margin_top = 17.0
+margin_right = 189.0
+margin_bottom = 67.0
 mouse_filter = 2
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Center/VBoxContainer/AdButton/CenterContainer/HBoxContainer"]
@@ -192,8 +190,8 @@ align = 1
 valign = 1
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Center/VBoxContainer/AdButton/CenterContainer/HBoxContainer"]
-margin_right = 70.0
-margin_bottom = 70.0
+margin_right = 78.0
+margin_bottom = 50.0
 mouse_filter = 2
 texture = ExtResource( 5 )
 stretch_mode = 4
@@ -204,7 +202,7 @@ wait_time = 3.0
 [node name="GPGS" type="Node" parent="."]
 script = ExtResource( 4 )
 [connection signal="continue_button" from="." to="." method="_on_Menu_continue_button"]
-[connection signal="gui_input" from="TextureRect" to="." method="_on_TextureRect_gui_input"]
+[connection signal="gui_input" from="Darkening" to="." method="_on_TextureRect_gui_input"]
 [connection signal="button_down" from="CenterContainer/VBoxContainer/Center/VBoxContainer/ReplayButton" to="." method="_on_ReplayButton_button_down"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/Center/VBoxContainer/ReplayButton" to="." method="_on_ReplayButton_button_up"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Center/VBoxContainer/ReplayButton" to="." method="_on_ReplayButton_pressed"]

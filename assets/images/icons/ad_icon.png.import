@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rewarded_ad.png-c8b9f99aa40eb37f37527dcd5b017790.stex"
+path="res://.import/ad_icon.png-eb08290dfd1c791721c34c8651687661.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/buttons/rewarded_ad.png"
-dest_files=[ "res://.import/rewarded_ad.png-c8b9f99aa40eb37f37527dcd5b017790.stex" ]
+source_file="res://assets/images/icons/ad_icon.png"
+dest_files=[ "res://.import/ad_icon.png-eb08290dfd1c791721c34c8651687661.stex" ]
 
 [params]
 
