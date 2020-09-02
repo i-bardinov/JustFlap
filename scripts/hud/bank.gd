@@ -21,6 +21,11 @@ func _on_Darkening_gui_input(event):
 		if event.pressed:
 			emit_signal('close')
 
+func _notification(what):
+	if visible:
+		if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
+			emit_signal('close')
+
 func _on_Bank_close():
 	hide()
 	if on_close:

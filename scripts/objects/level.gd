@@ -36,6 +36,11 @@ func _physics_process(_delta):
 	if Player.state == Player.State.Flying:
 		eff_speed += speed_increasing
 
+func _notification(what):
+	if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
+		if not $HUD/Bank.visible && not $HUD/Menu.visible:
+			get_tree().quit()
+
 func _on_PipeGeneratorTimer_timeout():
 	decreased_timer -= delta_pipe_timer
 	decreased_timer = max(decreased_timer, min_pipe_timer)

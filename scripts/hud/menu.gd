@@ -161,6 +161,11 @@ func _on_TextureRect_gui_input(event):
 		if event.pressed:
 			emit_signal('replay')
 
+func _notification(what):
+	if visible:
+		if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
+			emit_signal('replay')
+
 func _on_Menu_continue_button():
 	if Global.coins >= current_price:
 		Global.coins -= current_price
