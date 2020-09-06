@@ -19,7 +19,7 @@ export (float) var speed = 170.0
 export (float) var speed_increasing = 0.02
 export (int) var coin_min_pipe = 1
 export (int) var coin_max_pipe = 3
-export (int) var banner_starts_required = 2
+export (int) var banner_starts_required = 1
 
 var decreased_timer: float = 0
 var eff_speed = speed

@@ -5,8 +5,6 @@
 [ext_resource path="res://scripts/hud/background.gd" type="Script" id=6]
 [ext_resource path="res://assets/images/background/distant_clouds.png" type="Texture" id=7]
 
-
-
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0 )
 colors = PoolColorArray( 0.305882, 0.752941, 0.792157, 1 )

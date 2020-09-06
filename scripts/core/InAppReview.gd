@@ -11,7 +11,7 @@ enum InAppReviewStatus {
 
 var in_app_review
 
-var review_starts_required: int = 4
+var review_starts_required: int = 3
 var review_info = InAppReviewStatus.None
 
 func _ready():
@@ -42,6 +42,8 @@ func _on_launch_review_flow_success() -> void:
 	review_info = InAppReviewStatus.Shown
 
 func _on_Level_reset():
+	if review_info == InAppReviewStatus.Shown:
+		return
 	if Global.matches_count >= 1 && Global.start_count % review_starts_required == 0:
 		request_review_info()
 
