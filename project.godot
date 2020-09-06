@@ -32,7 +32,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="FlappyBirdie"
+config/name="JustFlap"
 run/main_scene="res://scenes/objects/level.tscn"
 boot_splash/image="res://splashes/splash.png"
 boot_splash/fullsize=false
@@ -76,7 +76,7 @@ locale_filter=[ 0, [  ] ]
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
+quality/driver/fallback_to_gles2=true
 quality/2d/use_pixel_snap=true
 vram_compression/import_etc=true
 environment/default_environment="res://default_env.tres"
