@@ -44,9 +44,9 @@ func _on_Level_game_continue():
 	hide()
 
 func _on_AdMob_banner_ad_loaded():
-	var scale: float = float(ProjectSettings.get_setting("display/window/size/height")) / float(OS.get_screen_size().y)
+	var scale: float = float(get_viewport().get_visible_rect().size.x) / float(OS.get_window_size().x)
 	var dimension: Vector2 = AdMob.get_banner_dimension()
-	$MarginContainer.rect_position.y = -dimension.y * scale
+	$MarginContainer.rect_position.y = -dimension.y * scale - 10
 
 func _on_return_from_bank() -> void:
 	emit_signal("bank_closed")
