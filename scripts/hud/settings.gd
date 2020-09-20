@@ -46,7 +46,13 @@ func _on_Level_game_continue():
 func _on_AdMob_banner_ad_loaded():
 	var scale: float = float(get_viewport().get_visible_rect().size.x) / float(OS.get_window_size().x)
 	var dimension: Vector2 = AdMob.get_banner_dimension()
+	if dimension.y <= 1:
+		$BannerSizeUpdate.start()
 	$MarginContainer.rect_position.y = -dimension.y * scale - 10
 
 func _on_return_from_bank() -> void:
 	emit_signal("bank_closed")
+
+func _on_BannerSizeUpdate_timeout():
+	_on_AdMob_banner_ad_loaded()
+

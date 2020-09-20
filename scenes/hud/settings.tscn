@@ -114,6 +114,10 @@ margin_right = 69.0
 margin_bottom = 63.0
 mouse_filter = 2
 texture = ExtResource( 1 )
+
+[node name="BannerSizeUpdate" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 [connection signal="button_down" from="MarginContainer/VBoxContainer/BankButton" to="." method="_on_BankButton_button_down"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/BankButton" to="." method="_on_BankButton_button_up"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BankButton" to="." method="_on_BankButton_pressed"]
@@ -123,3 +127,4 @@ texture = ExtResource( 1 )
 [connection signal="button_down" from="MarginContainer/VBoxContainer/SoundButton" to="." method="_on_SoundButton_button_down"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/SoundButton" to="." method="_on_SoundButton_button_up"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SoundButton" to="." method="_on_SoundButton_pressed"]
+[connection signal="timeout" from="BannerSizeUpdate" to="." method="_on_BannerSizeUpdate_timeout"]
