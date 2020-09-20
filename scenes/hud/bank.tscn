@@ -53,9 +53,9 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 18.0
-margin_top = 381.0
+margin_top = 225.0
 margin_right = 382.0
-margin_bottom = 619.0
+margin_bottom = 775.0
 grow_horizontal = 2
 mouse_filter = 2
 custom_constants/separation = 20
@@ -171,10 +171,178 @@ text = "75,00"
 align = 1
 valign = 1
 
-[node name="BankText" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="BankLine_2" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 208.0
 margin_right = 364.0
-margin_bottom = 238.0
+margin_bottom = 292.0
+alignment = 2
+
+[node name="Coins" type="HBoxContainer" parent="CenterContainer/VBoxContainer/BankLine_2"]
+margin_right = 100.0
+margin_bottom = 84.0
+
+[node name="CoinsCount" type="Label" parent="CenterContainer/VBoxContainer/BankLine_2/Coins"]
+margin_top = 17.0
+margin_right = 100.0
+margin_bottom = 67.0
+custom_fonts/font = SubResource( 3 )
+text = "100"
+
+[node name="Button" type="HBoxContainer" parent="CenterContainer/VBoxContainer/BankLine_2"]
+margin_left = 104.0
+margin_right = 364.0
+margin_bottom = 84.0
+custom_constants/separation = 30
+alignment = 2
+
+[node name="CoinIcon" type="TextureRect" parent="CenterContainer/VBoxContainer/BankLine_2/Button"]
+margin_right = 50.0
+margin_bottom = 84.0
+texture = ExtResource( 4 )
+stretch_mode = 4
+
+[node name="BankButton_2" type="TextureButton" parent="CenterContainer/VBoxContainer/BankLine_2/Button"]
+margin_left = 80.0
+margin_right = 260.0
+margin_bottom = 84.0
+rect_pivot_offset = Vector2( 92.7563, 41.1183 )
+texture_normal = ExtResource( 3 )
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/BankLine_2/Button/BankButton_2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Price" type="Label" parent="CenterContainer/VBoxContainer/BankLine_2/Button/BankButton_2/CenterContainer"]
+margin_left = 12.0
+margin_top = 17.0
+margin_right = 168.0
+margin_bottom = 67.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0.654902, 0.282353, 1 )
+text = "75,00"
+align = 1
+valign = 1
+
+[node name="BankLine_3" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 312.0
+margin_right = 364.0
+margin_bottom = 396.0
+alignment = 2
+
+[node name="Coins" type="HBoxContainer" parent="CenterContainer/VBoxContainer/BankLine_3"]
+margin_right = 100.0
+margin_bottom = 84.0
+
+[node name="CoinsCount" type="Label" parent="CenterContainer/VBoxContainer/BankLine_3/Coins"]
+margin_top = 17.0
+margin_right = 100.0
+margin_bottom = 67.0
+custom_fonts/font = SubResource( 3 )
+text = "100"
+
+[node name="Button" type="HBoxContainer" parent="CenterContainer/VBoxContainer/BankLine_3"]
+margin_left = 104.0
+margin_right = 364.0
+margin_bottom = 84.0
+custom_constants/separation = 30
+alignment = 2
+
+[node name="CoinIcon" type="TextureRect" parent="CenterContainer/VBoxContainer/BankLine_3/Button"]
+margin_right = 50.0
+margin_bottom = 84.0
+texture = ExtResource( 4 )
+stretch_mode = 4
+
+[node name="BankButton_3" type="TextureButton" parent="CenterContainer/VBoxContainer/BankLine_3/Button"]
+margin_left = 80.0
+margin_right = 260.0
+margin_bottom = 84.0
+rect_pivot_offset = Vector2( 92.7563, 41.1183 )
+texture_normal = ExtResource( 3 )
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/BankLine_3/Button/BankButton_3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Price" type="Label" parent="CenterContainer/VBoxContainer/BankLine_3/Button/BankButton_3/CenterContainer"]
+margin_left = 12.0
+margin_top = 17.0
+margin_right = 168.0
+margin_bottom = 67.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0.654902, 0.282353, 1 )
+text = "75,00"
+align = 1
+valign = 1
+
+[node name="BankLine_4" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 416.0
+margin_right = 364.0
+margin_bottom = 500.0
+alignment = 2
+
+[node name="Coins" type="HBoxContainer" parent="CenterContainer/VBoxContainer/BankLine_4"]
+margin_right = 100.0
+margin_bottom = 84.0
+
+[node name="CoinsCount" type="Label" parent="CenterContainer/VBoxContainer/BankLine_4/Coins"]
+margin_top = 17.0
+margin_right = 100.0
+margin_bottom = 67.0
+custom_fonts/font = SubResource( 3 )
+text = "100"
+
+[node name="Button" type="HBoxContainer" parent="CenterContainer/VBoxContainer/BankLine_4"]
+margin_left = 104.0
+margin_right = 364.0
+margin_bottom = 84.0
+custom_constants/separation = 30
+alignment = 2
+
+[node name="CoinIcon" type="TextureRect" parent="CenterContainer/VBoxContainer/BankLine_4/Button"]
+margin_right = 50.0
+margin_bottom = 84.0
+texture = ExtResource( 4 )
+stretch_mode = 4
+
+[node name="BankButton_4" type="TextureButton" parent="CenterContainer/VBoxContainer/BankLine_4/Button"]
+margin_left = 80.0
+margin_right = 260.0
+margin_bottom = 84.0
+rect_pivot_offset = Vector2( 92.7563, 41.1183 )
+texture_normal = ExtResource( 3 )
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/BankLine_4/Button/BankButton_4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Price" type="Label" parent="CenterContainer/VBoxContainer/BankLine_4/Button/BankButton_4/CenterContainer"]
+margin_left = 12.0
+margin_top = 17.0
+margin_right = 168.0
+margin_bottom = 67.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0.654902, 0.282353, 1 )
+text = "75,00"
+align = 1
+valign = 1
+
+[node name="BankText" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 520.0
+margin_right = 364.0
+margin_bottom = 550.0
 grow_horizontal = 2
 custom_fonts/font = SubResource( 5 )
 text = "BANK"
@@ -182,6 +350,10 @@ align = 1
 valign = 1
 autowrap = true
 uppercase = true
+
+[node name="PurchasesRefreshTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
 [connection signal="close" from="." to="." method="_on_Bank_close"]
 [connection signal="gui_input" from="Darkening" to="." method="_on_Darkening_gui_input"]
 [connection signal="button_down" from="CenterContainer/VBoxContainer/BankLine_Ads/Button/BankButton_Ads" to="." method="_on_BankButton_Ads_button_down"]
@@ -190,3 +362,13 @@ uppercase = true
 [connection signal="button_down" from="CenterContainer/VBoxContainer/BankLine_1/Button/BankButton_1" to="." method="_on_BankButton_1_button_down"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/BankLine_1/Button/BankButton_1" to="." method="_on_BankButton_1_button_up"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/BankLine_1/Button/BankButton_1" to="." method="_on_BankButton_1_pressed"]
+[connection signal="button_down" from="CenterContainer/VBoxContainer/BankLine_2/Button/BankButton_2" to="." method="_on_BankButton_2_button_down"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/BankLine_2/Button/BankButton_2" to="." method="_on_BankButton_2_button_up"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/BankLine_2/Button/BankButton_2" to="." method="_on_BankButton_2_pressed"]
+[connection signal="button_down" from="CenterContainer/VBoxContainer/BankLine_3/Button/BankButton_3" to="." method="_on_BankButton_3_button_down"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/BankLine_3/Button/BankButton_3" to="." method="_on_BankButton_3_button_up"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/BankLine_3/Button/BankButton_3" to="." method="_on_BankButton_3_pressed"]
+[connection signal="button_down" from="CenterContainer/VBoxContainer/BankLine_4/Button/BankButton_4" to="." method="_on_BankButton_4_button_down"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/BankLine_4/Button/BankButton_4" to="." method="_on_BankButton_4_button_up"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/BankLine_4/Button/BankButton_4" to="." method="_on_BankButton_4_pressed"]
+[connection signal="timeout" from="PurchasesRefreshTimer" to="." method="_on_PurchasesRefreshTimer_timeout"]

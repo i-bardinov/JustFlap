@@ -84,6 +84,9 @@ func load_game():
 			var start_count = saved_game.get_var()
 			if start_count:
 				Global.start_count += start_count
+			var premium = saved_game.get_var()
+			if premium != null:
+				Global.premium = premium
 			saved_game.close()
 	sound_change()
 	emit_signal("coins_updated", Global.coins)
@@ -97,6 +100,7 @@ func save_game():
 		saved_game.store_var(is_muted)
 		saved_game.store_var(Global.coins)
 		saved_game.store_var(Global.start_count)
+		saved_game.store_var(Global.premium)
 		saved_game.close()
 	$GPGS.submit_leaderboard_score(high_score)
 

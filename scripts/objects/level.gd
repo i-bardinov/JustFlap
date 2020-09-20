@@ -57,7 +57,7 @@ func _on_Player_start_flying():
 	$Timers/TutorialTimer.stop()
 	if not $AdMob.is_rewarded_ad_loaded():
 		$AdMob.load_rewarded_ad()
-	if not $AdMob.is_banner_loaded() and Global.start_count >= banner_starts_required:
+	if not $AdMob.is_banner_loaded() and Global.start_count >= banner_starts_required and Global.premium == 0:
 		$AdMob.load_banner()
 
 func generate_new_pipe(in_center: bool):
@@ -147,7 +147,7 @@ func _on_Menu_watch_rewarded_ad():
 	$AdMob.show_rewarded_ad()
 
 func _on_AdMob_initialization_complete():
-	if Global.start_count >= banner_starts_required:
+	if Global.start_count >= banner_starts_required and Global.premium == 0:
 		$AdMob.load_banner()
 	$AdMob.load_rewarded_ad()
 
