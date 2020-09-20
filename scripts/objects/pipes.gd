@@ -15,7 +15,7 @@ var is_moving_up_down: bool = false setget set_moving_up_down
 func _ready():
 	state = State.Move
 
-func _physics_process(delta):
+func _process(delta):
 	if state == State.Move:
 		position.x -= speed * delta
 		if is_moving_up_down:

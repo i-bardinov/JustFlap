@@ -6,8 +6,8 @@ signal falling
 
 enum State { None, Idle, Flying, Smash, Falling }
 
-export (int) var jump_speed = -410
-export (int) var gravity = 1100
+export (int) var jump_speed = -360
+export (int) var gravity = 1000
 export (int) var push = 240
 export (int) var start = 240
 export (int) var movement_stopping = -250
